@@ -1,0 +1,22 @@
+create table jsontable(json string);
+
+insert overwrite local directory select get_json_object(jsontable.json,'$.Age')as age,
+get_json_object(jsontable.json,'$.Education')as edu,
+get_json_object(jsontable.json,'$.MaritalStatus')as maritalstatus,
+get_json_object(jsontable.json,'$.Gender')as gender,
+get_json_object(jsontable.json,'$.TaxFilterStatus')as tfstatus,
+get_json_object(jsontable.json,'$.Income')as income,
+get_json_object(jsontable.json,'$.Parents')as parents,
+get_json_object(jsontable.json,'$.CountryofBirth')as cob,
+fromjsontable;
+Lodingjson  file to table2:
+Insert overwrite local directory ‘/home/cloudera/db2.jsontable2’ select get_json_object(jsontable.json,'$.Age')as age,
+get_json_object(jsontable.json,'$.Education')as edu,
+get_json_object(jsontable.json,'$.MaritalStatus')as maritalstatus,
+get_json_object(jsontable.json,'$.Gender')as gender,
+get_json_object(jsontable.json,'$.TaxFilterStatus')as tfstatus,
+get_json_object(jsontable.json,'$.Income')as income,
+get_json_object(jsontable.json,'$.Parents')as parents,
+get_json_object(jsontable.json,'$.CountryofBirth')as cob,
+fromjsontable;
+

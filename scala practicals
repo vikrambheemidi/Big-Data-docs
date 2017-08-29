@@ -1,0 +1,143 @@
+to check the version of scala
+-----------------------------
+scala -version
+
+to enter into interactive mode
+-----------------------------
+scala
+
+to quit from scala mode
+-----------------------
+:quit
+
+run the println command from scala shell
+-----------------------------------------
+println("hello world")
+println(4+5)
+
+Scipt mode - create a file Program1.scala in a notepad
+------------------------------------------------------
+
+object Program1 {
+
+def main(args: Array[String]){
+	println("This is the first program in scala")
+
+	}
+}
+
+compile
+-------
+scalac Program1.scala
+
+run
+----
+scala Program1
+
+Data Types
+----------
+Int
+Long
+Float
+Double
+Char
+String
+Boolean
+
+
+Types of variables
+------------------
+val - immutable
+var - mutable - can be modified 
+
+
+Functions in scala
+------------------
+object Prg2 {
+   def main(args: Array[String]) {
+      println( "Returned Value : " + addInt(5,7) );
+   }
+   
+   def addInt( a:Int, b:Int ) : Int = {
+      var sum:Int = 0
+      sum = a + b
+
+      return sum
+   }
+}
+
+writing in to a file
+--------------------
+
+import java.io._
+
+object Prg3 {
+   def main(args: Array[String]) {
+      val writer = new PrintWriter(new File("scala1.txt" ))
+
+      writer.write("inserting data into a file\n")
+      writer.close()
+   }
+}
+
+
+input from the user
+-------------------
+object Prg4 {
+   def main(args: Array[String]) {
+      print("Please enter your input : " )
+      val line = Console.readLine
+      
+      println("You have typed: " + line)
+   }
+}
+
+
+read the file
+-------------
+import scala.io.Source
+
+object Prg5 {
+   def main(args: Array[String]) {
+      println("Following is the content read:" )
+
+      Source.fromFile("custs" ).foreach { 
+         print 
+      }
+	println("\t")      	
+
+   }
+}
+
+
+class example
+-------------
+import java.io._
+
+class Point(val xc: Int, val yc: Int) {
+   var x: Int = xc
+   var y: Int = yc
+   
+   def move(dx: Int, dy: Int) {
+      x = x + dx
+      y = y + dy
+      println ("Point x location : " + x);
+      println ("Point y location : " + y);
+   }
+}
+
+object Prg6 {
+   def main(args: Array[String]) {
+      val pt = new Point(10, 20);
+
+      // Move to a new location
+      pt.move(10, 10);
+   }
+}
+
+
+
+
+
+
+
